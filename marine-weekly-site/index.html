@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="海洋经济与蓝色国土周报 — 广州市地质调查院（广州市海洋发展促进中心）">
+  <meta name="author" content="广州市地质调查院">
+  <title>海洋经济与蓝色国土周报</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='8' fill='%230B2740'/><text x='20' y='28' text-anchor='middle' font-size='22'>🌊</text></svg>">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script defer src="./assets/app.js"></script>
+</head>
+<body>
+
+<!-- ===== Loading 遮罩 ===== -->
+<div id="loading-overlay" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <p>加载中…</p>
+</div>
+
+<!-- ===== 整体容器 ===== -->
+<div class="page-wrapper" id="page-wrapper">
+
+  <!-- ===== 红头刊头 ===== -->
+  <header class="report-header">
+    <div class="header-inner">
+
+      <!-- 期数切换（桌面端，右上角） -->
+      <div class="issue-switcher" id="issue-switcher">
+        <div class="issue-switcher-row">
+          <button class="issue-switcher-arrow" id="switcher-prev" aria-label="上一期">‹</button>
+          <div class="issue-switcher-card" id="issue-dropdown-trigger">
+            <div class="num" id="switcher-num">—</div>
+            <div class="switcher-dots" id="switcher-dots"></div>
+          </div>
+          <button class="issue-switcher-arrow" id="switcher-next" aria-label="下一期">›</button>
+        </div>
+      </div>
+
+      <div class="header-badge-line">
+        <span class="header-badge">内部参阅 · 决策参考</span>
+        <span class="header-divider-v"></span>
+        <span class="header-org" id="header-org">广州市地质调查院（广州市海洋发展促进中心）</span>
+      </div>
+
+      <h1 class="header-cn-title" id="header-title">海洋经济与蓝色国土周报</h1>
+      <div class="header-en-title">Marine Economy &amp; Blue Territory Weekly</div>
+
+      <!-- 红头双横线 -->
+      <div class="header-red-rule"><span class="rule-thick"></span><span class="rule-thin"></span></div>
+
+      <!-- 移动端翻页器 -->
+      <div class="mobile-pager" id="mobile-pager">
+        <button class="mp-arrow" id="mp-prev" aria-label="上一期">‹</button>
+        <div class="mp-info" id="mp-info">
+          <div class="mp-num" id="mp-num">—</div>
+          <div class="mp-date" id="mp-date"></div>
+          <div class="mp-dots" id="mp-dots"></div>
+          <div class="mp-dropdown" id="mp-dropdown"></div>
+        </div>
+        <button class="mp-arrow" id="mp-next" aria-label="下一期">›</button>
+      </div>
+
+      <div class="header-meta" id="header-meta"></div>
+    </div>
+  </header>
+
+  <!-- ===== 目录导航 ===== -->
+  <nav class="top-nav" id="top-nav">
+    <div class="top-nav-title">目录</div>
+    <div class="top-nav-tabs" id="top-nav-tabs"></div>
+  </nav>
+
+  <!-- ===== 主体布局 ===== -->
+  <div class="main-layout">
+    <aside class="sidebar-nav" id="sidebar-nav" aria-label="本页条目"></aside>
+    <main class="content-area" id="content-container"></main>
+  </div>
+
+</div>
+
+<!-- ===== 回到顶部 ===== -->
+<button id="back-to-top" aria-label="回到顶部">↑</button>
+
+<!-- ===== 期数下拉（body 层级，绝对定位） ===== -->
+<div class="issue-dropdown" id="issue-dropdown"></div>
+
+<!-- ===== 移动端底部 Tab ===== -->
+<nav class="tab-bar" id="tab-bar"></nav>
+
+</body>
+</html>
