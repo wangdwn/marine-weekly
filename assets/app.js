@@ -355,24 +355,84 @@
    * 期数下拉（桌面 + 移动）
    * ==================================================================== */
   function buildIssueDropdown() {
-    var dd = document.getElementById('issue-dropdown');
+    buildDropdownList('issue-dropdown', false);
+    buildDropdownList('mp-dropdown', true);
+    attachSearch('issue-dropdown');
+    attachSearch('mp-dropdown');
+  }
+
+  function buildDropdownList(ddId, isMobile) {
+    var dd = document.getElementById(ddId);
+    if (!dd) return;
     dd.innerHTML = '';
-    state.issues.slice().reverse().forEach(function (it) {
-      var d = document.createElement('div');
-      d.className = 'issue-dropdown-item' + (state.currentIssue && it.issue === state.currentIssue.issue ? ' active' : '');
-      d.textContent = it.title + ' · ' + it.dateRange;
-      d.addEventListener('click', function (e) { e.stopPropagation(); gotoIssue(it.issue); });
-      dd.appendChild(d);
-    });
-    var mpd = document.getElementById('mp-dropdown');
-    mpd.innerHTML = '';
     state.issues.slice().reverse().forEach(function (it) {
       var act = state.currentIssue && it.issue === state.currentIssue.issue;
       var d = document.createElement('div');
-      d.className = 'mpd-item' + (act ? ' active' : '');
-      d.innerHTML = '<span>' + esc(it.title) + ' <span class="mpd-date">' + esc(it.dateRange) + '</span></span><span class="mpd-check">✓</span>';
-      d.addEventListener('click', function (e) { e.stopPropagation(); mpd.classList.remove('open'); gotoIssue(it.issue); });
-      mpd.appendChild(d);
+      d.className = (isMobile ? 'mpd-item' : 'issue-dropdown-item') + (act ? ' active' : '');
+      d.setAttribute('data-search', (it.title + ' ' + it.dateRange).toLowerCase());
+      if (isMobile) {
+        d.innerHTML = '<span>' + esc(it.title) + ' <span class="mpd-date">' + esc(it.dateRange) + '</span></span><span class="mpd-check">✓</span>';
+        d.addEventListener('click', function (e) { e.stopPropagation(); dd.classList.remove('open'); gotoIssue(it.issue); });
+      } else {
+        d.textContent = it.title + ' · ' + it.dateRange;
+        d.addEventListener('click', function (e) { e.stopPropagation(); gotoIssue(it.issue); });
+      }
+      dd.appendChild(d);
+    });
+  }
+
+  function attachSearch(ddId) {
+    var dd = document.getElementById(ddId);
+    if (!dd) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'issue-search';
+    wrap.innerHTML = '<input class="issue-search-input" type="search" placeholder="按产业 / 区域 / 关键词检索…" autocomplete="off">' +
+      '<div class="issue-search-results"></div>';
+    dd.insertBefore(wrap, dd.firstChild);
+    wrap.addEventListener('click', function (e) { e.stopPropagation(); });
+    var input = wrap.querySelector('input');
+    var timer = null;
+    input.addEventListener('input', function (e) {
+      var q = e.target.value.trim().toLowerCase();
+      clearTimeout(timer);
+      timer = setTimeout(function () { runIssueSearch(ddId, q); }, 250);
+    });
+  }
+
+  function runIssueSearch(ddId, q) {
+    var dd = document.getElementById(ddId);
+    if (!dd) return;
+    var resultsEl = dd.querySelector('.issue-search-results');
+    var items = Array.prototype.slice.call(dd.querySelectorAll('.issue-dropdown-item, .mpd-item'));
+    if (!q) {
+      resultsEl.innerHTML = '';
+      items.forEach(function (el) { el.style.display = ''; });
+      return;
+    }
+    // 标题 / 日期即时过滤
+    items.forEach(function (el) {
+      var hay = (el.getAttribute('data-search') || '') + ' ' + el.textContent.toLowerCase();
+      el.style.display = hay.indexOf(q) >= 0 ? '' : 'none';
+    });
+    // 全文检索：加载各期 JSON 匹配
+    resultsEl.innerHTML = '<div class="isr-loading">全文检索中…</div>';
+    Promise.all(state.issues.map(function (it) {
+      return getJSON('data/issue-' + it.issue + '.json')
+        .then(function (d) { return { it: it, hit: JSON.stringify(d).toLowerCase().indexOf(q) >= 0 }; })
+        .catch(function () { return { it: it, hit: false }; });
+    })).then(function (res) {
+      var hits = res.filter(function (r) { return r.hit; });
+      if (!hits.length) { resultsEl.innerHTML = '<div class="isr-empty">未找到匹配期数</div>'; return; }
+      resultsEl.innerHTML = '<div class="isr-head">全文命中 ' + hits.length + ' 期</div>';
+      hits.forEach(function (r) {
+        var d = document.createElement('div');
+        d.className = 'issue-dropdown-item isr-item';
+        d.textContent = '🔍 ' + r.it.title + ' · ' + r.it.dateRange;
+        d.addEventListener('click', function (e) { e.stopPropagation(); closeDropdowns(); gotoIssue(r.it.issue); });
+        resultsEl.appendChild(d);
+      });
+    }).catch(function () {
+      resultsEl.innerHTML = '<div class="isr-empty">检索失败</div>';
     });
   }
 

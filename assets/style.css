@@ -392,3 +392,27 @@ strong { color: var(--sea-deep); }
   .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; }
   .kpi-value { font-size: 22px; }
 }
+
+/* ===== 期数下拉：按产业/区域/关键词检索（整合方案 D·底座） ===== */
+.issue-search {
+  padding: 8px;
+  border-bottom: 1px solid #e2e5ea;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+}
+.issue-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+}
+.issue-search-input:focus { border-color: #1B3A5C; }
+.issue-search-results { max-height: 220px; overflow-y: auto; margin-top: 6px; }
+.isr-loading, .isr-empty { font-size: 12px; color: #8b949e; padding: 6px 4px; }
+.isr-head { font-size: 12px; color: #1B3A5C; font-weight: 600; padding: 6px 4px 2px; }
+.isr-item { font-size: 12px; }
