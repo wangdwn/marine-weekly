@@ -115,7 +115,8 @@
     document.getElementById('header-meta').innerHTML =
       '<span><span class="label">期号</span>' + esc(d.year || '') + '年第' + d.issue + '期（总第' + d.total + '期）</span>' +
       '<span><span class="label">数据区间</span>' + esc(d.dateRange) + '</span>' +
-      '<span><span class="label">发布日期</span>' + esc(d.publishDate) + '</span>';
+      '<span><span class="label">发布日期</span>' + esc(d.publishDate) + '</span>' +
+      (d.updatedAt ? '<span><span class="label">更新时间</span>' + esc(d.updatedAt) + '</span>' : '');
     document.title = (d.masthead && d.masthead.title ? d.masthead.title : '海洋经济与蓝色国土周报') + '（第' + d.issue + '期）';
     if (d.masthead) {
       if (d.masthead.title) document.getElementById('header-title').textContent = d.masthead.title;
@@ -157,8 +158,11 @@
 
   function renderMobilePager(d) {
     document.getElementById('mp-num').textContent = '第' + d.issue + '期';
-    document.getElementById('mp-date').textContent =
-      String(d.dateRange).replace(/月/g, '.').replace(/日/g, '').replace(/[—–]/g, '-');
+    var range = String(d.dateRange).replace(/月/g, '.').replace(/日/g, '').replace(/[—–]/g, '-');
+    var stamp = d.updatedAt || d.publishDate || '';
+    document.getElementById('mp-date').textContent = stamp
+      ? range + ' · ' + String(stamp).replace(/年/g, '.').replace(/月/g, '.').replace(/日/g, '') + '更新'
+      : range;
     renderDots('mp-dots', 'mp-dot', d.issue);
   }
 
