@@ -345,7 +345,7 @@
       var links = side.querySelectorAll('.sidebar-num');
       if (!cards.length || !links.length) return;
       var cur = null;
-      cards.forEach(function (c) { if (c.getBoundingClientRect().top <= 130) cur = c.dataset.cardNum; });
+      cards.forEach(function (c) { if (c.getBoundingClientRect().top <= 186) cur = c.dataset.cardNum; });
       if (!cur) cur = links[0].dataset.num;
       links.forEach(function (l) { l.classList.toggle('active', l.dataset.num === cur); });
     });

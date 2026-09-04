@@ -4,20 +4,21 @@
  * 行情惯例：红涨 / 绿跌。
  * ========================================================================= */
 :root {
-  --gov-red:   #B5121B;   /* 机关红（红头、序号章） */
-  --gov-red-2: #8E0E15;
-  --sea-deep:  #0B2740;   /* 深海蓝（重心文字、导航） */
+  /* 桥接到海洋系列 tokens；无等价项（深海蓝）保留周报体裁，不改成看板主色 */
+  --gov-red:   var(--primary, #B5121B);       /* gazette 机关红 */
+  --gov-red-2: var(--primary-hover, #8E0E15);
+  --sea-deep:  #0B2740;                       /* 刊头/表格海军，tokens 无对应 */
   --sea-mid:   #14507A;
-  --sea-num:   #0E6E8C;   /* 数字高亮青蓝 */
-  --ink:       #22303E;
-  --ink-soft:  #5B6B7B;
-  --paper:     #FFFFFF;
-  --page-bg:   #EEF2F4;
-  --line:      #DCE4EA;
-  --up:        #C0392B;   /* 涨（红） */
-  --down:      #1E8449;   /* 跌（绿） */
-  --font-song: "STZhongsong", "SimSun", "Noto Serif SC", "Songti SC", serif;
-  --font-body: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  --sea-num:   var(--accent, #0E6E8C);
+  --ink:       var(--fg, #22303E);
+  --ink-soft:  var(--muted, #5B6B7B);
+  --paper:     var(--card, #FFFFFF);
+  --page-bg:   var(--bg, #EEF2F4);
+  --line:      var(--border, #DCE4EA);
+  --up:        #C0392B;                       /* 与 tokens --up 同值；勿写成 var(--up) 以免自引用 */
+  --down:      #1E8449;
+  --font-song: "STZhongsong", "SimSun", var(--font-serif, "Noto Serif SC", "Songti SC", serif);
+  --font-body: var(--font-sans, -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif);
 }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -35,11 +36,11 @@ body {
 button { font-family: inherit; border: none; background: none; cursor: pointer; }
 button:focus-visible, .sidebar-num:focus-visible { outline: 2px solid var(--sea-mid); outline-offset: 2px; }
 
-.page-wrapper { max-width: 1120px; margin: 0 auto; }
+.page-wrapper { max-width: var(--maxw, 1120px); margin: 0 auto; }
 
 /* ===== Loading ===== */
 .loading-overlay {
-  position: fixed; inset: 0; z-index: 100;
+  position: fixed; inset: 0; z-index: 300;
   background: rgba(238,242,244,.94);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 14px; color: var(--ink-soft); font-size: 14px;
@@ -141,7 +142,7 @@ button:focus-visible, .sidebar-num:focus-visible { outline: 2px solid var(--sea-
  * 目录导航（粘性）
  * ========================================================================= */
 .top-nav {
-  position: sticky; top: 0; z-index: 40;
+  position: sticky; top: var(--nav-h, 56px); z-index: 40;
   display: flex; align-items: center; gap: 16px;
   background: var(--paper); border-bottom: 1px solid var(--line);
   padding: 0 22px; overflow-x: auto; scrollbar-width: none;
@@ -168,7 +169,7 @@ button:focus-visible, .sidebar-num:focus-visible { outline: 2px solid var(--sea-
  * ========================================================================= */
 .main-layout { display: flex; gap: 22px; padding: 22px; align-items: flex-start; }
 
-.sidebar-nav { flex: none; width: 118px; position: sticky; top: 66px; }
+.sidebar-nav { flex: none; width: 118px; position: sticky; top: calc(var(--nav-h, 56px) + 66px); }
 .sidebar-nav-inner { display: flex; flex-direction: column; gap: 2px; }
 .sidebar-num {
   display: flex; align-items: center; gap: 9px;
@@ -197,6 +198,7 @@ button:focus-visible, .sidebar-num:focus-visible { outline: 2px solid var(--sea-
   background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
   margin-bottom: 18px; overflow: hidden;
   animation: cardIn .35s ease both;
+  scroll-margin-top: calc(var(--nav-h, 56px) + 56px);
 }
 @keyframes cardIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 

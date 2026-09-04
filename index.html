@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="gazette">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,11 @@
   <meta name="author" content="广州市地质调查院">
   <title>海洋经济与蓝色国土周报</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='8' fill='%230B2740'/><text x='20' y='28' text-anchor='middle' font-size='22'>🌊</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://wangdwn.github.io/design-system/tokens.css">
+  <link rel="stylesheet" href="https://wangdwn.github.io/design-system/nav.css">
   <link rel="stylesheet" href="./assets/style.css">
   <script defer src="./assets/app.js"></script>
 </head>
@@ -17,6 +22,23 @@
   <div class="loading-spinner"></div>
   <p>加载中…</p>
 </div>
+
+<!-- ===== 海洋系列顶栏（壳层；D 底座为当前站） ===== -->
+<nav class="os-nav" aria-label="海洋系列">
+  <div class="os-nav__inner">
+    <a class="os-nav__brand" href="https://wangdwn.github.io/">
+      <span class="os-nav__mark" aria-hidden="true"></span>
+      <span class="os-nav__brand-text">海洋系列</span>
+    </a>
+    <div class="os-nav__pills">
+      <a class="os-nav__pill os-nav__pill--a" href="https://wangdwn.github.io/guangzhou-marine-enterprises/">A 家底</a>
+      <a class="os-nav__pill os-nav__pill--b" href="https://wangdwn.github.io/marine-monitor/">B 经营</a>
+      <a class="os-nav__pill os-nav__pill--c" href="https://wangdwn.github.io/guangzhou-ocean-dashboard/">C 质量</a>
+      <a class="os-nav__pill os-nav__pill--d is-current" href="https://wangdwn.github.io/marine-weekly/" aria-current="page">D 底座</a>
+    </div>
+    <a class="os-nav__ds" href="https://wangdwn.github.io/design-system/">设计系统</a>
+  </div>
+</nav>
 
 <!-- ===== 整体容器 ===== -->
 <div class="page-wrapper" id="page-wrapper">
