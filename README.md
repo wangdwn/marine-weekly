@@ -38,7 +38,7 @@ cd marine-weekly-site && python3 -m http.server 8080
 - **板块增删/排序/图标**：`assets/app.js` 顶部 `TAB_REGISTRY`。某期 JSON 里没有的板块自动隐藏
 - **高亮规则**：`assets/app.js` 中 `STRONG_RULES`（信号句加粗）与 `NUM_RULE`（数字单位高亮）。
   生成端只输出纯文本，重点标注由前端确定性兜底
-- **视觉**：`assets/style.css` 顶部 `:root` 变量（机关红、深海蓝、涨红跌绿等）
+- **视觉**：红头刊头仍由 `assets/style.css` 驱动；页面 `data-theme="gazette"`，壳层顶栏与色板来自 [海洋系列设计系统](https://wangdwn.github.io/design-system/)（勿复制 tokens）
 
 ## 部署
 
