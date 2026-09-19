@@ -49,3 +49,13 @@ cd marine-weekly-site && python3 -m http.server 8080
 
 `marine-weekly` 技能封装了每期内容的生成流程（素材采集 → 按 schema 写作 → 校验 → 更新目录），
 schema 与写作纪律的权威定义见技能包内 `references/`。
+
+## 素材自动包（防断更）
+
+```bash
+python3 scripts/collect_weekly_bundle.py --days 14
+# 输出 data/reports/weekly_bundle_YYYY-MM-DD.json 与 .md
+```
+
+写稿纪律：只使用素材包与可打开的 source_url；规划目标须标注「规划口径」；无数据写〔待核〕。
+当前最新期见 `data/index.json`（第14期 · 2026-09-19）。
