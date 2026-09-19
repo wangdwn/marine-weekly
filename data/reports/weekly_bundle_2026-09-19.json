@@ -1,0 +1,156 @@
+{
+  "generated_at": "2026-09-19T08:17:59",
+  "window_days": 14,
+  "cutoff": "2026-09-05",
+  "positioning": "素材包仅汇总可溯源公开/仓内字段；写稿不得编造财务。",
+  "notices": {
+    "available": true,
+    "source": "/workspace/marine-reform/geo-ocean-bidding/docs/data/notices.json",
+    "total": 15,
+    "recent_count": 1,
+    "recent": [
+      {
+        "publish_date": "2026-09-11",
+        "title": "南沙区龙穴北临港海洋高端装备制造及综合保障基地项目招标计划",
+        "budget": 0,
+        "win_amount": 0,
+        "source_url": "https://www.tujianzhaobiao.com/news-b627fabef1781b98a95b173cf801436a/",
+        "region": "广州市"
+      }
+    ],
+    "missing_source_url": 0,
+    "updated_at": "2026-09-19"
+  },
+  "funding": {
+    "available": true,
+    "source": "/workspace/marine-reform/marine-monitor/app/public/data/funding.json",
+    "updated": "2026-09-14",
+    "count": 56,
+    "status_dist": {
+      "ongoing": 49,
+      "closed": 5,
+      "open": 1,
+      "upcoming": 1
+    },
+    "note": "只读监测，不做申请入口"
+  },
+  "activity": {
+    "available": true,
+    "source": "/workspace/marine-reform/guangzhou-marine-enterprises/activity.json",
+    "total": 4087,
+    "sample": [
+      {
+        "time": "09-14 15:03",
+        "type": "招聘",
+        "content": "广州地铁集团有限公司2026届春季校园招聘公告-广州地铁集团有限公司",
+        "enterprise": "广州地铁集团有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "工商",
+        "content": "广州地铁设计注册资本增至4.6亿元 增幅约13%_腾讯新闻",
+        "enterprise": "广州地铁集团有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招投标",
+        "content": "招商银行中标:广州地铁集团关于2026年5月第二次1年期流动资金贷款公开比选项目中选候选人公示_采购与招标网",
+        "enterprise": "广州地铁集团有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招投标",
+        "content": "【招标结果】广州地铁运营诉讼打包委外项目(2026-2028年)中选公示-广东招标网",
+        "enterprise": "广州地铁集团有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招聘",
+        "content": "【企业招聘】广州发展新能源集团股份有限公司2026校园招聘 | 中山大学化学学院",
+        "enterprise": "广州发展新能源集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "工商",
+        "content": "证券日报网-广州白云山医药集团股份有限公司关于 完成法定代表人变更并换领营业执照的公告",
+        "enterprise": "广州白云山医药集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招投标",
+        "content": "广州白云山医药销售有限公司2026年代购药品服务招标公告 - 广东省机电设备招标中心有限公司(信息发布系统)",
+        "enterprise": "广州白云山医药集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招投标",
+        "content": "广州白云山医药销售有限公司2026年代购药品服务中标候选人公示 - 广东省机电设备招标中心有限公司(信息发布系统)",
+        "enterprise": "广州白云山医药集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招聘",
+        "content": "广东海大集团股份有限公司2026届春季全球校园招聘-广东海大集团股份有限公司",
+        "enterprise": "广东海大集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "工商",
+        "content": "证券日报网-广东海大集团股份有限公司 关于变更回购股份用途并注销 暨通知债权人的公告",
+        "enterprise": "广东海大集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招投标",
+        "content": "【招标公告】广东海大集团股份有限公司华南区域2026年原料自提物流招投标项目-第二季度招标公告-广东招标网",
+        "enterprise": "广东海大集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:03",
+        "type": "招聘",
+        "content": "「广州中海达卫星导航技术股份有限公司招聘信息」-2025年招聘信息- 智通直聘",
+        "enterprise": "广州中海达卫星导航技术股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:02",
+        "type": "招投标",
+        "content": "广州市广州海格通信集团股份有限公司设备联网监控管理系统采购项目第二次中标结果公告-广东招标网",
+        "enterprise": "广州海格通信集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:02",
+        "type": "招投标",
+        "content": "【招标结果】广州海格通信集团股份有限公司2026年仪器类集中采购项目(采购包2、采购包3)中标公示-广东招标网",
+        "enterprise": "广州海格通信集团股份有限公司",
+        "source": "博查搜索"
+      },
+      {
+        "time": "09-14 15:02",
+        "type": "招聘",
+        "content": "中国能源建设集团广东省电力设计研究院2026校园招聘 - 求职信息发布(Job_Post)版 - 北大未名BBS",
+        "enterprise": "中国能源建设集团广东省电力设计研究院有限公司",
+        "source": "博查搜索"
+      }
+    ],
+    "gap": "条目时间为月-日，跨年需人工核对；内容多为搜索标题摘要。"
+  },
+  "todo": [
+    "核对每条 source_url 可打开",
+    "无来源事件删除或标〔待核〕",
+    "更新 marine-weekly data/issue-N.json + index.json",
+    "同步 structure_judgment 底座更新日志"
+  ]
+}
