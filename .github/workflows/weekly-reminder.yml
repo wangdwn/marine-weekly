@@ -1,0 +1,79 @@
+name: 周报到期提醒
+
+on:
+  schedule:
+    # 每周五 10:00（北京时间）检查本周周报是否已发布；UTC 周五 02:00
+    - cron: "0 2 * * 5"
+  workflow_dispatch:  # 手动触发按钮
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取仓库
+        uses: actions/checkout@v4
+
+      - name: 检查本周周报是否发布
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const idx = JSON.parse(fs.readFileSync('data/index.json', 'utf8'));
+            const last = idx[idx.length - 1];
+            const m = last.dateRange.match(/(\d+)月(\d+)日—(\d+)月(\d+)日/);
+            if (!m) { core.setOutput('stale', 'true'); return; }
+            const now = new Date();
+            const year = now.getFullYear();
+            let start = new Date(year, +m[1] - 1, +m[2]);
+            let end = new Date(year, +m[3] - 1, +m[4]);
+            if (end < start) end = new Date(year + 1, +m[3] - 1, +m[4]); // 跨年
+            // 本周五（触发日）是否落在最新一期覆盖范围内
+            const friday = new Date(now); friday.setHours(12, 0, 0, 0);
+            const stale = !(friday >= start && friday <= end);
+            core.setOutput('stale', String(stale));
+            core.setOutput('next_issue', String(last.issue + 1));
+            core.setOutput('last_range', last.dateRange);
+
+      - name: 无需提醒则退出
+        if: steps.check.outputs.stale != 'true'
+        run: echo "本周周报已发布（${{ steps.check.outputs.last_range }}），无需提醒。"
+
+      - name: 已有未关闭提醒则跳过
+        if: steps.check.outputs.stale == 'true'
+        id: dup
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'weekly-reminder',
+            });
+            core.setOutput('exists', String(data.length > 0));
+
+      - name: 创建到期提醒 issue
+        if: steps.check.outputs.stale == 'true' && steps.dup.outputs.exists != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const n = '${{ steps.check.outputs.next_issue }}';
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `【提醒】周报第 ${n} 期尚未发布`,
+              labels: ['weekly-reminder'],
+              body: [
+                `本周五例行检查：\`data/index.json\` 最新一期覆盖 ${{ steps.check.outputs.last_range }}，`,
+                `本周（第 ${n} 期）尚未发布。`,
+                ``,
+                `建议流程：`,
+                `1. 跑素材包：\`python3 scripts/collect_weekly_bundle.py --from-github\``,
+                `2. 按 \`assets/issue-template.json\` 起草 \`data/issue-${n}.json\``,
+                `3. 更新 \`data/index.json\`，推送后同步 marine-monitor 的 \`weekly/latest.json\``,
+                ``,
+                `发布后请关闭本 issue。`,
+              ].join('\n'),
+            });
