@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-10-25T09:13:32",
+  "window_days": 14,
+  "cutoff": "2026-10-11",
+  "positioning": "素材包仅汇总可溯源公开/仓内字段；写稿不得编造财务。",
+  "notices": {
+    "available": true,
+    "source": "/workspace/geo-ocean-bidding/docs/data/notices.json",
+    "total": 15,
+    "recent_count": 0,
+    "recent": [],
+    "missing_source_url": 0,
+    "updated_at": "2026-09-19"
+  },
+  "funding": {
+    "available": true,
+    "source": "/workspace/marine-monitor/app/public/data/funding.json",
+    "updated": "2026-10-12",
+    "count": 56,
+    "status_dist": {
+      "ongoing": 49,
+      "closed": 5,
+      "open": 1,
+      "upcoming": 1
+    },
+    "note": "只读监测，不做申请入口"
+  },
+  "activity": {
+    "available": true,
+    "source": "/workspace/guangzhou-marine-enterprises/activity.json",
+    "total": 5000,
+    "sample": [
+      {
+        "time": "10-12 09:05",
+        "type": "招投标",
+        "content": "首页-万丰国际货运代理(广州)有限公司-主营:海运; 空运; 拖车;",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "招投标",
+        "content": "万丰国际货运代理(广州)有限公司",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "工商变更",
+        "content": "万丰国际货运代理(广州)有限公司 - 水滴信用",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "工商变更",
+        "content": "万丰国际货运代理(广州)有限公司 - 企查查",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "工商变更",
+        "content": "万丰国际货运代理(广州)有限公司_【工商信息_信用信息_纳税人识别号_地址_电话_怎么样】-企查猫(企业查询宝)",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "工商变更",
+        "content": "万丰国际货运代理(广州)有限公司-企业可信百科-水滴信用",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "工商变更",
+        "content": "万丰国际货运代理(广州)有限公司 - 企业年报信息 - 爱企查",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "工商变更",
+        "content": "万丰国际货运代理(广州)有限公司成都分公司- 爱企查",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "人才招聘",
+        "content": "【万丰国际货运代理(广州)有限公司招聘_广州招聘信息】-前程无忧官方招聘网站",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "人才招聘",
+        "content": "「万丰国际货运代理(广州)有限公司肇庆分公司招聘」-BOSS直聘",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "人才招聘",
+        "content": "万丰国际货运代理(广州)有限公司",
+        "enterprise": "万丰国际货运代理(广州)有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "招投标",
+        "content": "三合(广州)探测技术有限公司 - 铁耙云",
+        "enterprise": "三合(广州)探测技术有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "招投标",
+        "content": "三合(广州)探测技术有限公司招投标_中标信息-剑鱼标讯",
+        "enterprise": "三合(广州)探测技术有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "招投标",
+        "content": "三合(广州)探测技术有限公司",
+        "enterprise": "三合(广州)探测技术有限公司",
+        "source": "360搜索"
+      },
+      {
+        "time": "10-12 09:05",
+        "type": "招投标",
+        "content": "探地雷达_地震仪_GEM多频电磁探- 【三合(广州)探测技术有限公司】",
+        "enterprise": "三合(广州)探测技术有限公司",
+        "source": "360搜索"
+      }
+    ],
+    "gap": "条目时间为月-日，跨年需人工核对；内容多为搜索标题摘要。"
+  },
+  "todo": [
+    "核对每条 source_url 可打开",
+    "无来源事件删除或标〔待核〕",
+    "更新 marine-weekly data/issue-N.json + index.json",
+    "同步 structure_judgment 底座更新日志"
+  ]
+}
